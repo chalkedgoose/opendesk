@@ -1,29 +1,87 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Hello World!</title>
-    <link rel="stylesheet" href="./styles/photon/css/photon.min.css">
-    <link rel="stylesheet" href="./styles/chart/Chart.min.css">
-    <script src="./styles/chart/Chart.bundle.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./styles/photon/css/photon.min.css" />
   </head>
   <body>
+    <header class="toolbar toolbar-header">
+      <h1 class="title">Header</h1>
+    </header>
 
     <div class="window">
       <div class="window-content">
+        <br />
 
-        <h1>Hello World!</h1>
-        We are using Node.js <span id="node-version"></span>,
-        Chromium <span id="chrome-version"></span>,
-        and Electron <span id="electron-version"></span>.
+        <style>
+          #mainNav {
+            /* padding: 1vw; */
+            margin-right: 2vw;
+          }
+          #activeForm {
+             padding: 1vw;
+          }
+        </style>
 
-        <br>
+        <nav class="nav-group" id="mainNav">
+          <h5 class="nav-group-title">Menu</h5>
+          <a class="nav-group-item active">
+            <span class="icon icon-monitor"></span>
+            System Info
+          </a>
+          <span class="nav-group-item">
+            <span class="icon icon-leaf"></span>
+            Temperature
+          </span>
+          <span class="nav-group-item">
+            <span class="icon icon-hourglass"></span>
+            Uptime
+          </span>
+          <span class="nav-group-item">
+            <span class="icon icon-signal"></span>
+            Wifi
+          </span>
+          <span class="nav-group-item">
+                <span class="icon icon-thumbs-up"></span>
+                Feedback
+          </span>
+        </nav>
 
+        <ul class="list-group" id="activeForm">
+          <li class="list-group-header">
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Search for someone"
+            />
+          </li>
+          <li class="list-group-item">
+            <div class="media-body">
+              <strong>
+                Note Title
+              </strong>
+              <p>
+                This is the note content
+              </p>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="media-body">
+              <strong>
+                Note Title
+              </strong>
+              <p>
+                This is the note content
+              </p>
+            </div>
+          </li>
+        </ul>
+        <br />
+
+       
       </div>
     </div>
-
-
-
 
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
