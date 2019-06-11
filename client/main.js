@@ -17,29 +17,6 @@ function createWindow() {
     }
   });
 
-  function setFlashingWindow() {
-    const query = `"SELECT key, name, celsius, fahrenheit FROM temperature_sensors;"`;
-    const prefix = "osqueryi --json";
-    const mainCommand = `${prefix} ${query}`;
-    exec(mainCommand, (err, stdout, stderr) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-      let data = JSON.parse(stdout);
-      data.forEach(x => {
-        console.log(x.celsius);
-        console.log(x.fahrenheit);
-        console.log(x.key);
-        console.log(x.name);
-        console.log(x);
-        console.log("\n");
-      });
-    });
-  }
-
-  setFlashingWindow();
-
   // and load the index.html of the app.
   mainWindow.loadFile("index.html");
 
