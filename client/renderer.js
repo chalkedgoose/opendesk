@@ -5,13 +5,13 @@ const { dialog, shell } = require("electron");
 function destroy_attributes() {
   elements = ["wifi", "system_info", "temperature", "uptime", "feedback"];
   elements.forEach(elmID => {
-    document.querySelector(`#${elmID}`).removeAttribute("active");
+    document.querySelector(`#${elmID}`).classList.remove("active");
   });
 }
 
 /** Makes element active */
 function add_attribute(elmID) {
-  document.querySelector(`#${elmID}`).setAttribute("active", null);
+  document.querySelector(`#${elmID}`).classList.add("active");
 }
 
 function twitter_link() {
