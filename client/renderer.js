@@ -1,5 +1,10 @@
 const { exec } = require("child_process");
-const { dialog } = require("electron");
+const { dialog, shell } = require("electron");
+
+function twitter_link() {
+  const target = "https://twitter.com/greyworld_io";
+  shell.openExternal(target);
+}
 
 function system_info() {
   const query = `"SELECT * from system_info;"`;
