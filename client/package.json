@@ -1,25 +1,33 @@
 {
-  "name": "electron-quick-start",
+  "name": "opendesk",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "Open Desk is a system monitoring software for users of Mac OS also commonly known as OSX. Open Desk utilizes Open Source Software like OSQuery, Electron, and Node.js to display System information. The information visualized by Open Desk is commonly used to diagnose technical issues and system bottlenecks.",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/calba5141114/opendesk",
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "opendesk",
+    "osquery",
+    "system monitoring"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "Carlos",
+  "license": "MIT",
   "devDependencies": {
-    "electron": "^5.0.2"
+    "electron": "^5.0.2",
+    "electron-builder": "^20.43.0"
   },
-  "dependencies": {
-    "electron-pug": "^2.0.0"
+  "dependencies": {},
+  "build": {
+    "appId": "us.carlosalba.opendesk",
+    "productName":"opendesk",
+    "category": "public.app-category.developer-tools",
+    "target": "mac" ,
+    "directory": {
+      "output": "build"
+    }
   }
 }
