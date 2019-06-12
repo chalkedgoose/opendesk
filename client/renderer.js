@@ -107,7 +107,29 @@ function wifi() {
       console.error(err);
       return;
     }
-    links.innerHTML += JSON.stringify(JSON.parse(stdout));
+    let template = "";
+    const data = JSON.parse(stdout);
+    data.forEach(x => {
+      template += `
+        <li class="list-group-item">
+        <div class="media-body">
+          <strong>
+            ${x.network_name}
+          </strong>
+          <p>
+            security: ${x.security_type}
+          </p>
+          <p>
+            captive portal: ${x.captive_portal}
+          </p>
+          <p>
+            last connected: ${x.last_connected}
+          </p>
+        </div>
+      </li>
+      `;
+    });
+    links.innerHTML += template;
   });
 }
 
