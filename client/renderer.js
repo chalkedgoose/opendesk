@@ -143,7 +143,7 @@ function temperature_sensors() {
     }
     const links = document.querySelector("#activeForm");
     let data = JSON.parse(stdout);
-    links.innerHTML = "";
+    links.innerHTML = ` <h1 class="title">System Temperature</h1>`;
     data.forEach(x => {
       links.innerHTML += `
           <li class="list-group-item">

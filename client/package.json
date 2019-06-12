@@ -21,5 +21,13 @@
     "electron-builder": "^20.43.0"
   },
   "dependencies": {},
-  "build": {}
+  "build": {
+    "appId": "us.carlosalba.opendesk",
+    "productName":"opendesk",
+    "category": "public.app-category.developer-tools",
+    "target": "mac" ,
+    "directory": {
+      "output": "build"
+    }
+  }
 }
