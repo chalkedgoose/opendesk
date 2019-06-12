@@ -104,21 +104,21 @@ function uptime() {
               <p>
               ${x.days}
               </p>
-              <br>
+            
               <h5>
                 hours: 
               </h5>
               <p>
               ${x.hours}
               </p>
-              <br>
+             
               <h5>
                 minutes: 
               </h5>
               <p>
               ${x.minutes}
               </p>
-              <br>
+             
               <h5>
 
                 seconds: 
@@ -126,7 +126,7 @@ function uptime() {
               <p>
               ${x.seconds}
               </p>
-              <br>
+            
               <h5>
                 total seconds:
               </h5>
