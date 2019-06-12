@@ -81,7 +81,7 @@ function uptime() {
   });
 }
 
-function wifi() {
+async function wifi() {
   const query = `" SELECT network_name, last_connected, security_type, captive_portal FROM wifi_networks;"`;
   const query2 = `"SELECT network_name, security_type, mode, channel, rssi, interface FROM wifi_status;"`;
   const prefix = "osqueryi --json";
@@ -93,14 +93,26 @@ function wifi() {
   const links = document.querySelector("#activeForm");
   links.innerHTML = "";
 
-  exec(mainCommand2, (err, stdout, stderr) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    const data = JSON.parse(stdout)[0];
-    
-    links.innerHTML += ` 
+  function execShellCommand(cmd) {
+    const exec = require("child_process").exec;
+    return new Promise((resolve, reject) => {
+      exec(cmd, (error, stdout, stderr) => {
+        if (error) {
+          console.error(error);
+          return;
+        }
+        resolve(stdout ? stdout : stderr);
+      });
+    });
+  }
+
+  const currentwifi = execShellCommand(mainCommand2);
+  currentwifi
+    .then((stdout, stderr) => {
+      console.log(stdout);
+      const data = JSON.parse(stdout)[0];
+
+      links.innerHTML += ` 
     <h1 class="title">Current Wifi Network</h1>
     <div class="media-body">
     <strong>
@@ -118,39 +130,98 @@ function wifi() {
     <p>
         interface: ${data.interface}
     </p>
-  </div>
-    `;
-  });
-
-  exec(mainCommand, (err, stdout, stderr) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    let template = `<h1 class="title">Wifi Networks History</h1>`;
-    const data = JSON.parse(stdout);
-    data.forEach(x => {
-      template += `
-        <li class="list-group-item">
-        <div class="media-body">
-          <strong>
-            ${x.network_name}
-          </strong>
-          <p>
-            security: ${x.security_type}
-          </p>
-          <p>
-            captive portal: ${!!+x.captive_portal}
-          </p>
-          <p>
-            last connected: ${x.last_connected}
-          </p>
-        </div>
-      </li>
-      `;
+  </div>`;
+    })
+    .then(() => {
+      exec(mainCommand, (err, stdout, stderr) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        let template = `<h1 class="title">Wifi Networks History</h1>`;
+        const data = JSON.parse(stdout);
+        data.forEach(x => {
+          template += `
+            <li class="list-group-item">
+            <div class="media-body">
+              <strong>
+                ${x.network_name}
+              </strong>
+              <p>
+                security: ${x.security_type}
+              </p>
+              <p>
+                captive portal: ${!!+x.captive_portal}
+              </p>
+              <p>
+                last connected: ${x.last_connected}
+              </p>
+            </div>
+          </li>
+          `;
+        });
+        links.innerHTML += template;
+      });
     });
-    links.innerHTML += template;
-  });
+
+  //   exec(mainCommand, (err, stdout, stderr) => {
+  //     if (err) {
+  //       console.error(err);
+  //       return;
+  //     }
+  //     let template = `<h1 class="title">Wifi Networks History</h1>`;
+  //     const data = JSON.parse(stdout);
+  //     data.forEach(x => {
+  //       template += `
+  //         <li class="list-group-item">
+  //         <div class="media-body">
+  //           <strong>
+  //             ${x.network_name}
+  //           </strong>
+  //           <p>
+  //             security: ${x.security_type}
+  //           </p>
+  //           <p>
+  //             captive portal: ${!!+x.captive_portal}
+  //           </p>
+  //           <p>
+  //             last connected: ${x.last_connected}
+  //           </p>
+  //         </div>
+  //       </li>
+  //       `;
+  //     });
+  //     links.innerHTML += template;
+  //   });
+
+  //   exec(mainCommand2, (err, stdout, stderr) => {
+  //     if (err) {
+  //       console.error(err);
+  //       return;
+  //     }
+  //     const data = JSON.parse(stdout)[0];
+
+  //     links.innerHTML += `
+  //     <h1 class="title">Current Wifi Network</h1>
+  //     <div class="media-body">
+  //     <strong>
+  //       ${data.network_name}
+  //     </strong>
+  //     <p>
+  //       security: ${data.security_type}
+  //     </p>
+  //     <p>
+  //         channel: ${data.channel}
+  //     </p>
+  //     <p>
+  //         rssi: ${data.rssi}
+  //     </p>
+  //     <p>
+  //         interface: ${data.interface}
+  //     </p>
+  //   </div>
+  //     `;
+  //   });
 }
 
 // connected to temperature
