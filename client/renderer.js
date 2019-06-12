@@ -84,12 +84,15 @@ function wifi() {
   const mainCommand = `${prefix} ${query}`;
   const mainCommand2 = `${prefix} ${query2}`;
 
+  const links = document.querySelector("#activeForm");
+  links.innerHTML = "";
+
   exec(mainCommand, (err, stdout, stderr) => {
     if (err) {
       console.error(err);
       return;
     }
-    objects.push(stdout);
+    links.innerHTML += JSON.stringify(JSON.parse(stdout));
   });
 
   exec(mainCommand2, (err, stdout, stderr) => {
@@ -97,49 +100,12 @@ function wifi() {
       console.error(err);
       return;
     }
-    objects.push(stdout);
-  });
-
-  const links = document.querySelector("#activeForm");
-  links.innerHTML = "";
-  objects.forEach(x => {
-    links.innerHTML = `
-        ${JSON.stringify(x)}
-        `;
+    links.innerHTML += JSON.stringify(JSON.parse(stdout));
   });
 }
 
-// const temp = setInterval(() => {
-//   const query = `"SELECT key, name, celsius, fahrenheit FROM temperature_sensors;"`;
-//   const prefix = "osqueryi --json";
-//   clearInterval(temp);
-//   const mainCommand = `${prefix} ${query}`;
-//   exec(mainCommand, (err, stdout, stderr) => {
-//     if (err) {
-//       console.error(err);
-//       return;
-//     }
-//     const links = document.querySelector("#activeForm");
-//     let data = JSON.parse(stdout);
-//     data.forEach(x => {
-//       links.innerHTML += `
-//         <li class="list-group-item">
-//         <div class="media-body">
-//           <strong>
-//             ${x.name}
-//           </strong>
-//           <p>
-//           fahrenheit: ${x.fahrenheit}
-//           </p>
-//           <p>
-//           celsius: ${x.celsius}
-//           </p>
-//           <p>
-//           key: ${x.key}
-//           </p>
-//         </div>
-//       </li>
-//         `;
-//     });
-//   });
-// }, 10);
+// connected to temperature
+const temp = setInterval(() => {
+  clearInterval(temp);
+  temperature_sensors();
+}, 10);
