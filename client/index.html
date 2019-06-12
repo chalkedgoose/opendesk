@@ -20,40 +20,45 @@
             margin-right: 2vw;
           }
           #activeForm {
-             padding: 1vw;
+            padding: 1vw;
           }
         </style>
 
         <nav class="nav-group" id="mainNav">
           <h5 class="nav-group-title">Menu</h5>
-          <a class="nav-group-item">
+          <a
+            href="javascript:;"
+            onclick="system_info();"
+            class="nav-group-item"
+          >
             <span class="icon icon-monitor"></span>
             System Info
           </a>
-          <span class="nav-group-item active">
+          <a
+            href="javascript:;"
+            onclick="temperature_sensors();"
+            class="nav-group-item active"
+          >
             <span class="icon icon-leaf"></span>
             Temperature
-          </span>
-          <span class="nav-group-item">
+          </a>
+          <a href="javascript:;" onclick="uptime();" class="nav-group-item">
             <span class="icon icon-hourglass"></span>
             Uptime
-          </span>
-          <span class="nav-group-item">
+          </a>
+          <a href="javascript:;" onclick="wifi();" class="nav-group-item">
             <span class="icon icon-signal"></span>
             Wifi
-          </span>
-          <span class="nav-group-item">
-                <span class="icon icon-thumbs-up"></span>
-                Feedback
-          </span>
+          </a>
+          <a class="nav-group-item">
+            <span class="icon icon-thumbs-up"></span>
+            Feedback
+          </a>
         </nav>
 
-        <ul class="list-group" id="activeForm">
-   
-        </ul>
-        <br />
+        <ul class="list-group" id="activeForm"></ul>
 
-       
+        <br />
       </div>
     </div>
 
