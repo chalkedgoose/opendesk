@@ -27,6 +27,7 @@
         <nav class="nav-group" id="mainNav">
           <h5 class="nav-group-title">Menu</h5>
           <a
+            id="system_info"
             href="javascript:;"
             onclick="system_info();"
             class="nav-group-item"
@@ -35,6 +36,7 @@
             System Info
           </a>
           <a
+            id="temperature"
             href="javascript:;"
             onclick="temperature_sensors();"
             class="nav-group-item active"
@@ -42,15 +44,30 @@
             <span class="icon icon-leaf"></span>
             Temperature
           </a>
-          <a href="javascript:;" onclick="uptime();" class="nav-group-item">
+          <a
+            id="uptime"
+            href="javascript:;"
+            onclick="uptime();"
+            class="nav-group-item"
+          >
             <span class="icon icon-hourglass"></span>
             Uptime
           </a>
-          <a href="javascript:;" onclick="wifi();" class="nav-group-item">
+          <a
+            id="wifi"
+            href="javascript:;"
+            onclick="wifi();"
+            class="nav-group-item"
+          >
             <span class="icon icon-signal"></span>
             Wifi
           </a>
-          <a href="javascript:;" onclick="twitter_link();" class="nav-group-item">
+          <a
+            id="feedback"
+            href="javascript:;"
+            onclick="twitter_link();"
+            class="nav-group-item"
+          >
             <span class="icon icon-twitter"></span>
             Feedback
           </a>
@@ -58,7 +75,6 @@
 
         <ul class="list-group" id="activeForm"></ul>
         <br />
-        
       </div>
     </div>
 

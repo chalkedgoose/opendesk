@@ -1,12 +1,29 @@
 const { exec } = require("child_process");
 const { dialog, shell } = require("electron");
 
+/** Gets rid of active marker on all elements */
+function destroy_attributes() {
+  elements = ["wifi", "system_info", "temperature", "uptime", "feedback"];
+  elements.forEach(elmID => {
+    document.querySelector(`#${elmID}`).removeAttribute("active");
+  });
+}
+
+/** Makes element active */
+function add_attribute(elmID) {
+  document.querySelector(`#${elmID}`).setAttribute("active", null);
+}
+
 function twitter_link() {
+  destroy_attributes();
+  add_attribute("feedback");
   const target = "https://twitter.com/greyworld_io";
   shell.openExternal(target);
 }
 
 function system_info() {
+  destroy_attributes();
+  add_attribute("system_info");
   const query = `"SELECT * from system_info;"`;
   const prefix = "osqueryi --json";
   const mainCommand = `${prefix} ${query}`;
@@ -27,6 +44,8 @@ function system_info() {
 }
 
 function temperature_sensors() {
+  destroy_attributes();
+  add_attribute("temperature");
   const query = `"SELECT key, name, celsius, fahrenheit FROM temperature_sensors;"`;
   const prefix = "osqueryi --json";
   const mainCommand = `${prefix} ${query}`;
@@ -62,6 +81,8 @@ function temperature_sensors() {
 }
 
 function uptime() {
+  destroy_attributes();
+  add_attribute("uptime");
   const query = `" SELECT days, hours, minutes, seconds, total_seconds FROM uptime;"`;
   const prefix = "osqueryi --json";
   const mainCommand = `${prefix} ${query}`;
@@ -82,6 +103,8 @@ function uptime() {
 }
 
 async function wifi() {
+  destroy_attributes();
+  add_attribute("wifi");
   const query = `" SELECT network_name, last_connected, security_type, captive_portal FROM wifi_networks;"`;
   const query2 = `"SELECT network_name, security_type, mode, channel, rssi, interface FROM wifi_status;"`;
   const prefix = "osqueryi --json";
@@ -109,7 +132,6 @@ async function wifi() {
   const currentwifi = execShellCommand(mainCommand2);
   currentwifi
     .then((stdout, stderr) => {
-      console.log(stdout);
       const data = JSON.parse(stdout)[0];
 
       links.innerHTML += ` 
