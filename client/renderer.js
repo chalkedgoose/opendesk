@@ -81,13 +81,15 @@ function wifi() {
   const query2 = `"SELECT network_name, security_type, mode, channel, rssi, interface FROM wifi_status;"`;
   const prefix = "osqueryi --json";
   const objects = [];
+  //   all wifi information
   const mainCommand = `${prefix} ${query}`;
+  //    current wifi
   const mainCommand2 = `${prefix} ${query2}`;
 
   const links = document.querySelector("#activeForm");
   links.innerHTML = "";
 
-  exec(mainCommand, (err, stdout, stderr) => {
+  exec(mainCommand2, (err, stdout, stderr) => {
     if (err) {
       console.error(err);
       return;
@@ -95,7 +97,7 @@ function wifi() {
     links.innerHTML += JSON.stringify(JSON.parse(stdout));
   });
 
-  exec(mainCommand2, (err, stdout, stderr) => {
+  exec(mainCommand, (err, stdout, stderr) => {
     if (err) {
       console.error(err);
       return;
