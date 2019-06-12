@@ -96,7 +96,45 @@ function uptime() {
     links.innerHTML = "";
     data.forEach(x => {
       links.innerHTML += `
-                    ${JSON.stringify(x)}
+      <h1 class="title">System Uptime</h1>
+      <div class="media-body">
+              <h5>
+                days: 
+              </h5>
+              <p>
+              ${x.days}
+              </p>
+              <br>
+              <h5>
+                hours: 
+              </h5>
+              <p>
+              ${x.hours}
+              </p>
+              <br>
+              <h5>
+                minutes: 
+              </h5>
+              <p>
+              ${x.minutes}
+              </p>
+              <br>
+              <h5>
+
+                seconds: 
+              </h5>
+              <p>
+              ${x.seconds}
+              </p>
+              <br>
+              <h5>
+                total seconds:
+              </h5>
+              <p>
+              ${x.total_seconds}
+              </p>
+              <br>
+            </div>
               `;
     });
   });
