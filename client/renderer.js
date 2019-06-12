@@ -85,7 +85,6 @@ function wifi() {
   const query = `" SELECT network_name, last_connected, security_type, captive_portal FROM wifi_networks;"`;
   const query2 = `"SELECT network_name, security_type, mode, channel, rssi, interface FROM wifi_status;"`;
   const prefix = "osqueryi --json";
-  const objects = [];
   //   all wifi information
   const mainCommand = `${prefix} ${query}`;
   //    current wifi
@@ -99,7 +98,28 @@ function wifi() {
       console.error(err);
       return;
     }
-    links.innerHTML += JSON.stringify(JSON.parse(stdout));
+    const data = JSON.parse(stdout)[0];
+    
+    links.innerHTML += ` 
+    <h1 class="title">Current Wifi Network</h1>
+    <div class="media-body">
+    <strong>
+      ${data.network_name}
+    </strong>
+    <p>
+      security: ${data.security_type}
+    </p>
+    <p>
+        channel: ${data.channel}
+    </p>
+    <p>
+        rssi: ${data.rssi}
+    </p>
+    <p>
+        interface: ${data.interface}
+    </p>
+  </div>
+    `;
   });
 
   exec(mainCommand, (err, stdout, stderr) => {
@@ -107,7 +127,7 @@ function wifi() {
       console.error(err);
       return;
     }
-    let template = "";
+    let template = `<h1 class="title">Wifi Networks History</h1>`;
     const data = JSON.parse(stdout);
     data.forEach(x => {
       template += `
@@ -120,7 +140,7 @@ function wifi() {
             security: ${x.security_type}
           </p>
           <p>
-            captive portal: ${x.captive_portal}
+            captive portal: ${!!+x.captive_portal}
           </p>
           <p>
             last connected: ${x.last_connected}
