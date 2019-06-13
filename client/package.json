@@ -17,15 +17,18 @@
   "author": "Carlos",
   "license": "MIT",
   "devDependencies": {
+    "@electron-forge/maker-dmg": "^6.0.0-beta.39",
     "electron": "^5.0.2",
     "electron-builder": "^20.43.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "fs-xattr": "^0.3.0"
+  },
   "build": {
     "appId": "us.carlosalba.opendesk",
-    "productName":"opendesk",
+    "productName": "opendesk",
     "category": "public.app-category.developer-tools",
-    "target": "mac" ,
+    "target": "mac",
     "directory": {
       "output": "build"
     }
