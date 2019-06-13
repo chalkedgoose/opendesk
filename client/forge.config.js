@@ -1,7 +1,8 @@
 
 module.exports = {
   packagerConfig: {
-       "icon": "build/electron.icns"
+       icon: "build/electron.icns",
+       appCategoryType:"public.app-category.developer-tools"
      },
   makers: [
     {
