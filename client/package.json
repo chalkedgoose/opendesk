@@ -14,6 +14,9 @@
     "osquery",
     "system monitoring"
   ],
+  "config": {
+   "forge": "./forge.config.js"
+ },
   "author": "Carlos",
   "license": "MIT",
   "devDependencies": {
@@ -24,14 +27,5 @@
   },
   "dependencies": {
     "fix-path": "^2.1.0"
-  },
-  "build": {
-    "appId": "us.carlosalba.opendesk",
-    "productName": "opendesk",
-    "category": "public.app-category.developer-tools",
-    "target": "mac",
-    "directory": {
-      "output": "build"
-    }
   }
 }
