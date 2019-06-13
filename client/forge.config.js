@@ -3,7 +3,7 @@ module.exports = {
   makers: [
     {
         name: '@electron-forge/maker-dmg',
-        platforms: ['darwin', 'linux'],
+        platforms: ['darwin'],
         config: {
               format: 'ULFO'
         }
