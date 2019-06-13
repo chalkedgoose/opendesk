@@ -1,6 +1,6 @@
 
 module.exports = {
-  electronPackagerConfig: {
+  packagerConfig: {
        "icon": "build/electron.icns"
      },
   makers: [
