@@ -34,5 +34,5 @@ download_dependencies
 
 
 echo "Go to your desktop open openDeskDownloads"
-echo "run dependency.pkg and then \n"
-echo "unzip .zip and drop open desk into applications folder \n"
+printf "run dependency.pkg and then \n"
+printf "unzip .zip and drop open desk into applications folder \n"
