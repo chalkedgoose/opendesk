@@ -2,21 +2,21 @@
 # this bash script is a part of the build process
 # enter home dir
 
-cat <<EOF
+# cat <<EOF
 
                                                                                                        
-  ,ad8888ba,                                          88888888ba,                           88         
- d8"'    `"8b                                         88      `"8b                          88         
-d8'        `8b                                        88        `8b                         88         
-88          88  8b,dPPYba,    ,adPPYba,  8b,dPPYba,   88         88   ,adPPYba,  ,adPPYba,  88   ,d8   
-88          88  88P'    "8a  a8P_____88  88P'   `"8a  88         88  a8P_____88  I8[    ""  88 ,a8"    
-Y8,        ,8P  88       d8  8PP"""""""  88       88  88         8P  8PP"""""""   `"Y8ba,   8888[      
- Y8a.    .a8P   88b,   ,a8"  "8b,   ,aa  88       88  88      .a8P   "8b,   ,aa  aa    ]8I  88`"Yba,   
-  `"Y8888Y"'    88`YbbdP"'    `"Ybbd8"'  88       88  88888888Y"'     `"Ybbd8"'  `"YbbdP"'  88   `Y8a  
-                88                                                                                     
-                88                                                                                     
+#   ,ad8888ba,                                          88888888ba,                           88         
+#  d8"'    `"8b                                         88      `"8b                          88         
+# d8'        `8b                                        88        `8b                         88         
+# 88          88  8b,dPPYba,    ,adPPYba,  8b,dPPYba,   88         88   ,adPPYba,  ,adPPYba,  88   ,d8   
+# 88          88  88P'    "8a  a8P_____88  88P'   `"8a  88         88  a8P_____88  I8[    ""  88 ,a8"    
+# Y8,        ,8P  88       d8  8PP"""""""  88       88  88         8P  8PP"""""""   `"Y8ba,   8888[      
+#  Y8a.    .a8P   88b,   ,a8"  "8b,   ,aa  88       88  88      .a8P   "8b,   ,aa  aa    ]8I  88`"Yba,   
+#   `"Y8888Y"'    88`YbbdP"'    `"Ybbd8"'  88       88  88888888Y"'     `"Ybbd8"'  `"YbbdP"'  88   `Y8a  
+#                 88                                                                                     
+#                 88                                                                                     
 
-EOF
+# EOF
 
 cd
 # enter desktop dir
