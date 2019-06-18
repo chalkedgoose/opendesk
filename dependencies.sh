@@ -14,7 +14,7 @@ cd opendesksetup
 download_dependencies(){
     # pull osquery from facebooks pkg repo
     curl -o dependency.pkg  https://pkg.osquery.io/darwin/osquery-3.3.2.pkg
-    # open desk
+    # pull opendesk app from github repo
     curl -o opendeskapp.zip https://github.com/calba5141114/opendesk/blob/master/dist/opendesk.zip
 }
 
