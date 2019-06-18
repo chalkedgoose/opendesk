@@ -2,6 +2,7 @@
 # this bash script is a part of the build process
 # enter homen dir
 cd
+# enter desktop dir
 cd Desktop
 
 mkdir opendesksetup
