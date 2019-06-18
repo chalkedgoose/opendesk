@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # this bash script is a part of the build process
-# enter homen dir
+# enter home dir
 cd
 # enter desktop dir
 cd Desktop
