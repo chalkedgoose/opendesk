@@ -5,6 +5,7 @@ cd
 # enter desktop dir
 cd Desktop
 
+# setup installation file
 mkdir opendesksetup
 cd opendesksetup
 
