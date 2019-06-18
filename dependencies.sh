@@ -2,7 +2,9 @@
 # this bash script is a part of the build process
 # enter home dir
 
+cat <<EOF
 
+EOF
 
 cd
 # enter desktop dir
