@@ -10,7 +10,10 @@ mkdir opendesksetup
 # enter installation file 
 cd opendesksetup
 
+# function setup
+download_dependencies(){
 
+}
 
 
 # pull pkg from facebooks repo
