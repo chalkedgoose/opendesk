@@ -4,7 +4,7 @@ cd
 cd Desktop
 
 mkdir opendesksetup
-
+cd opendesksetup
 
 
 
