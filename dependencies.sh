@@ -22,6 +22,12 @@ download_dependencies(){
     fi
     # pull opendesk app from github repo
     curl -o opendeskapp.zip https://github.com/calba5141114/opendesk/blob/master/dist/opendesk.zip
+    if [ -f opendeskapp.zip ]
+    then 
+        echo "opendeskapp downloaded"
+    else
+        echo "opendeskapp download failed"
+    fi
 }
 
 
