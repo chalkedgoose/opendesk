@@ -2,7 +2,7 @@
 # this bash script is a part of the build process
 # enter home dir
 
-base64 -d <<"X19fXyBfX18gIF9fX18gXyAgXyBfX18gIF9fX18gX19fXyBfICBfIAp8ICB8IHxfX10gfF9fXyB8XCB8IHwgIFwgfF9fXyBbX18gIHxfLyAgCnxfX3wgfCAgICB8X19fIHwgXHwgfF9fLyB8X19fIF9fX10gfCBcXyAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo=" | gunzip
+
 
 cd
 # enter desktop dir
