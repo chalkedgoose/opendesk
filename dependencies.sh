@@ -30,6 +30,8 @@ function download_dependencies(){
     fi
 }
 
+download_dependencies
+
 
 echo "Go to your desktop open openDeskDownloads"
 echo "run dependency.pkg and then \n"
