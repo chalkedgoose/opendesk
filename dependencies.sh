@@ -11,7 +11,7 @@ mkdir opendesksetup
 cd opendesksetup
 
 # function setup
-download_dependencies(){
+function download_dependencies(){
     # pull osquery from facebooks pkg repo
     curl -o dependency.pkg  https://pkg.osquery.io/darwin/osquery-3.3.2.pkg
     if [ -f dependency.pkg ]
