@@ -2,6 +2,12 @@
 # this bash script is a part of the build process
 cd
 cd Desktop
+
+mkdir opendesksetup
+
+
+
+
 mkdir openDeskDownloads
 cd openDeskDownloads
 
