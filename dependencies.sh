@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # this bash script is a part of the build process
+# enter homen dir
 cd
 cd Desktop
 
@@ -8,8 +9,6 @@ cd opendesksetup
 
 
 
-mkdir openDeskDownloads
-cd openDeskDownloads
 
 # pull pkg from facebooks repo
 curl -o dependency.pkg  https://pkg.osquery.io/darwin/osquery-3.3.2.pkg
