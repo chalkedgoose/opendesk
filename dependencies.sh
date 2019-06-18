@@ -3,7 +3,6 @@
 # enter home dir
 
 cat <<EOF
- 
 
                                                                                                        
   ,ad8888ba,                                          88888888ba,                           88         
