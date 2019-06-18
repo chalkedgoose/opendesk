@@ -7,6 +7,7 @@ cd Desktop
 
 # setup installation file
 mkdir opendesksetup
+# enter installation file 
 cd opendesksetup
 
 
