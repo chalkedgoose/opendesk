@@ -1,4 +1,5 @@
 
+
 export interface ISystemInterface {
     computer_name?: string;
     cpu_brand?: string;
@@ -23,3 +24,6 @@ export interface ITemperatureInterface {
     key?: string;
 }
 
+export interface ITemperatureInterfaceItems extends Array<ITemperatureInterface> {
+    
+}
