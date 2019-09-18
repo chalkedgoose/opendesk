@@ -1,6 +1,6 @@
 import { exec } from "child_process";
 import { shell } from "electron";
-import { ISystemInterface, ITemperatureInterfaceItems, ITemperatureInterface } from "./interfaces/interfaces";
+import { ISystemInterface, ITemperatureInterfaceItems, ITemperatureInterface, IUptimeInterface } from "./interfaces/interfaces";
 import { query } from "./query/query";
 import { systemTemplate, temperatureTemplate } from "./rendering/template";
 
@@ -62,5 +62,6 @@ async function temperatureSensors(): Promise<void> {
 async function uptime(): Promise<void> {
     await rmAttributes();
     await mkAttribute("uptime");
+    const data = await query(`" SELECT days, hours, minutes, seconds, total_seconds FROM uptime;"`) as Array<IUptimeInterface>;
     
 }
