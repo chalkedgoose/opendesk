@@ -1,8 +1,8 @@
 import { exec } from "child_process";
 import { shell } from "electron";
-import { query } from "./query/query";
 import { ISystemInterface } from "./interfaces/interfaces";
-import { systemTemplate } from './rendering/template';
+import { query } from "./query/query";
+import { systemTemplate } from "./rendering/template";
 
 const elements = ["wifi", "system_info", "temperature", "uptime", "feedback"];
 /**
@@ -44,3 +44,4 @@ async function systemInformation() {
     links.innerHTML = "";
     links.appendChild(await systemTemplate(data));
 }
+
