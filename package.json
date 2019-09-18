@@ -1,0 +1,19 @@
+{
+  "name": "opendesk",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:calba5141114/opendesk.git",
+  "author": "Carlos Alba <soradev4@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "start": "npm run build && electron ./dist/main.js"
+  },
+  "devDependencies": {
+    "electron": "^6.0.9",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.3"
+  }
+}
