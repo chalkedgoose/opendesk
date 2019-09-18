@@ -117,3 +117,7 @@ export async function temperatureTemplate(x: ITemperatureInterface): Promise<HTM
   `
   return temperature;
 }
+
+export async function uptimeTemplate(x: any): Promise<HTMLElement> {
+
+}
