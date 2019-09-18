@@ -37,7 +37,7 @@ async function twitterLink(): Promise<void> {
     shell.openExternal("https://twitter.com/Carlos92622018");
 }
 
-async function systemInformation(): Promise<void> {
+document.querySelector("#system_info").addEventListener('click', async () => {
     await rmAttributes();
     await mkAttribute("system_info");
     const data = await query(`"SELECT * from system_info;"`) as Array<ISystemInterface>;
@@ -45,10 +45,6 @@ async function systemInformation(): Promise<void> {
     data.forEach(async (x: ISystemInterface) => {
         links.appendChild(await systemTemplate(x));
     });
-}
-
-document.querySelector("#system_info").addEventListener('click', async () => {
-   await systemInformation();
 })
 
 
