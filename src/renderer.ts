@@ -5,7 +5,7 @@ const elements = ["wifi", "system_info", "temperature", "uptime", "feedback"];
  * Removes all attributes
  */
 async function rmAttributes(): Promise<void> {
-    elements.forEach(id => {
+    elements.forEach((id) => {
         document
         .querySelector(`${id}`)
         .classList
