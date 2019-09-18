@@ -1,8 +1,8 @@
 import { ISystemInterface, ITemperatureInterface } from "../interfaces/interfaces";
 
 export async function systemTemplate(x: ISystemInterface): Promise<HTMLElement> {
-    const system = document.createElement("div");
-    system.innerHTML = `
+  const system = document.createElement("div");
+  system.innerHTML = `
     <h1 class="title">System Information</h1>
     <div class="media-body">
             <h5>
@@ -92,9 +92,28 @@ export async function systemTemplate(x: ISystemInterface): Promise<HTMLElement> 
           </div>
           <br>
 `;
-    return system;
+  return system;
 }
 
 export async function temperatureTemplate(x: ITemperatureInterface): Promise<HTMLElement> {
-
+  const temperature = document.createElement("div");
+  temperature.innerHTML += `
+  <li class="list-group-item">
+  <div class="media-body">
+    <strong>
+      ${x.name}
+    </strong>
+    <p>
+    fahrenheit: ${x.fahrenheit}
+    </p>
+    <p>
+    celsius: ${x.celsius}
+    </p>
+    <p>
+    key: ${x.key}
+    </p>
+  </div>
+</li>
+  `
+  return temperature;
 }
