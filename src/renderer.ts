@@ -14,7 +14,6 @@ async function rmAttributes(): Promise<void> {
 }
 
 /**
- * 
  * @param id - id of object we want to add
  */
 async function mkAttribute(id: string): Promise<void> {
@@ -24,6 +23,10 @@ async function mkAttribute(id: string): Promise<void> {
     .add("active");
 }
 
+/**
+ * Twitter Link Generator
+ */
 async function twitterLink(): Promise<void> {
-
+    await rmAttributes();
+    mkAttribute("feedback");
 }
