@@ -2,7 +2,7 @@ import { exec } from "child_process";
 import { shell } from "electron";
 import { ISystemInterface, ITemperatureInterfaceItems, ITemperatureInterface, IUptimeInterface } from "./interfaces/interfaces";
 import { query } from "./query/query";
-import { systemTemplate, temperatureTemplate } from "./rendering/template";
+import { systemTemplate, temperatureTemplate, uptimeTemplate } from "./rendering/template";
 
 const elements = ["wifi", "system_info", "temperature", "uptime", "feedback"];
 const links = document.querySelector("#activeForm");
@@ -63,5 +63,7 @@ async function uptime(): Promise<void> {
     await rmAttributes();
     await mkAttribute("uptime");
     const data = await query(`" SELECT days, hours, minutes, seconds, total_seconds FROM uptime;"`) as Array<IUptimeInterface>;
-    
+    data.forEach(async (x: IUptimeInterface) => {
+        links.appendChild(await uptimeTemplate(x));
+    });
 }
