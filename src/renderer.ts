@@ -67,3 +67,8 @@ async function uptime(): Promise<void> {
         links.appendChild(await uptimeTemplate(x));
     });
 }
+
+const temp = setInterval(async () => {
+    clearInterval(temp);
+    await temperatureSensors();
+}, 10);
