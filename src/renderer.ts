@@ -1,4 +1,5 @@
 import { exec } from "child_process";
+import { shell, dialog } from 'electron';
 
 const elements = ["wifi", "system_info", "temperature", "uptime", "feedback"];
 /**
@@ -28,5 +29,7 @@ async function mkAttribute(id: string): Promise<void> {
  */
 async function twitterLink(): Promise<void> {
     await rmAttributes();
-    mkAttribute("feedback");
+    await mkAttribute("feedback");
+    shell.openExternal("https://twitter.com/Carlos92622018");
 }
+
