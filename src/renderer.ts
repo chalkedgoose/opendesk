@@ -1,5 +1,5 @@
 import { exec } from "child_process";
-import { shell, dialog } from "electron";
+import { shell } from "electron";
 import { query } from "./query/query";
 import { ISystemInterface } from "./interfaces/interfaces";
 
@@ -38,7 +38,8 @@ async function twitterLink(): Promise<void> {
 async function systemInformation(){
     await rmAttributes();
     await mkAttribute("system_info");
-    const data = await query(`"SELECT * from system_info;"`);
+    const data = await query(`"SELECT * from system_info;"`) as ISystemInterface;
     const links = document.querySelector("#activeForm");
     links.innerHTML = "";
+    
 }
