@@ -48,7 +48,7 @@ document.querySelector("#system_info").addEventListener('click', async () => {
 })
 
 
-async function temperatureSensors(): Promise<void> {
+document.querySelector("#temperature").addEventListener('click', async () => {
     await rmAttributes();
     await mkAttribute("temperature");
     const data = await query(`"SELECT key, name, celsius, fahrenheit FROM temperature_sensors;"`) as ITemperatureInterfaceItems;
@@ -58,7 +58,7 @@ async function temperatureSensors(): Promise<void> {
     data.forEach(async (x: ITemperatureInterface) => {
         links.appendChild(await temperatureTemplate(x));
     });
-}
+});
 
 async function uptime(): Promise<void> {
     await rmAttributes();
@@ -71,5 +71,13 @@ async function uptime(): Promise<void> {
 
 const temp = setInterval(async () => {
     clearInterval(temp);
-    await temperatureSensors();
+    await rmAttributes();
+    await mkAttribute("temperature");
+    const data = await query(`"SELECT key, name, celsius, fahrenheit FROM temperature_sensors;"`) as ITemperatureInterfaceItems;
+    links.innerHTML = "";
+    links.innerHTML = ` <h1 class="title">System Temperature</h1>`;
+
+    data.forEach(async (x: ITemperatureInterface) => {
+        links.appendChild(await temperatureTemplate(x));
+    });
 }, 10);
