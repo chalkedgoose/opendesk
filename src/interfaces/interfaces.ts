@@ -27,3 +27,11 @@ export interface ITemperatureInterface {
 export interface ITemperatureInterfaceItems extends Array<ITemperatureInterface> {
 
 }
+
+export interface IUptimeInterface {
+    days: string;
+    hours: string;
+    minutes: string;
+    seconds: string;
+    total_seconds: string;
+}
