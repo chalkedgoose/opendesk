@@ -56,3 +56,4 @@ async function temperatureSensors(): Promise<void> {
         links.appendChild(await temperatureTemplate(data));
     });
 }
+

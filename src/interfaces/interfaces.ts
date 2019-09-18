@@ -21,7 +21,7 @@ export interface ITemperatureInterface {
     name?: string;
     fahrenheit?: string;
     celsius?: string;
-    key?: string;
+    key: string;
 }
 
 export interface ITemperatureInterfaceItems extends Array<ITemperatureInterface> {
