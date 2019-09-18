@@ -38,4 +38,6 @@ async function systemInformation(){
     await rmAttributes();
     await mkAttribute("system_info");
     const data = await query(`"SELECT * from system_info;"`);
+    const links = document.querySelector("#activeForm");
+    links.innerHTML = "";
 }
