@@ -10,5 +10,10 @@
     "watch": "tsc -w",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "start": "npm run build && electron ./dist/main.js"
+  },
+  "devDependencies": {
+    "electron": "^6.0.9",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.3"
   }
 }
