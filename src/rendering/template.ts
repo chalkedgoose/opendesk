@@ -119,5 +119,46 @@ export async function temperatureTemplate(x: ITemperatureInterface): Promise<HTM
 }
 
 export async function uptimeTemplate(x: any): Promise<HTMLElement> {
-
+  const uptime = document.createElement("div");
+  uptime.innerHTML += `
+  <h1 class="title">System Uptime</h1>
+  <div class="media-body">
+          <h5>
+            days: 
+          </h5>
+          <p>
+          ${x.days}
+          </p>
+        
+          <h5>
+            hours: 
+          </h5>
+          <p>
+          ${x.hours}
+          </p>
+         
+          <h5>
+            minutes: 
+          </h5>
+          <p>
+          ${x.minutes}
+          </p>
+         
+          <h5>
+            seconds: 
+          </h5>
+          <p>
+          ${x.seconds}
+          </p>
+        
+          <h5>
+            total seconds:
+          </h5>
+          <p>
+          ${x.total_seconds}
+          </p>
+          <br>
+        </div>
+  `
+  return uptime;
 }
