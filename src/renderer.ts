@@ -33,3 +33,7 @@ async function twitterLink(): Promise<void> {
     shell.openExternal("https://twitter.com/Carlos92622018");
 }
 
+async function systemInformation(){
+    await rmAttributes();
+    await mkAttribute("system_info");
+}
