@@ -47,6 +47,11 @@ async function systemInformation(): Promise<void> {
     });
 }
 
+document.querySelector("#system_info").addEventListener('click', async () => {
+   await systemInformation();
+})
+
+
 async function temperatureSensors(): Promise<void> {
     await rmAttributes();
     await mkAttribute("temperature");
