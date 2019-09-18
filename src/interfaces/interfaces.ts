@@ -1,4 +1,5 @@
 
-export interface systemInterface {
-    
+export interface ISystemInterface {
+    computer_name?: string;
+
 }
