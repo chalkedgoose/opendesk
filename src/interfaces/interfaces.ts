@@ -7,4 +7,8 @@ export interface ISystemInterface {
     cpu_subtype?: string;
     cpu_type?: string;
     hardware_model?: string;
+    hardware_serial?: string;
+    hardware_vendor?: string;
+    hardware_version?: string;
+    hostname?: string;
 }
