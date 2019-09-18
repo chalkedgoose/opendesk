@@ -11,4 +11,6 @@ export interface ISystemInterface {
     hardware_vendor?: string;
     hardware_version?: string;
     hostname?: string;
+    physical_memory?: string;
+    uuid?: string;
 }

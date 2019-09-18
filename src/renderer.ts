@@ -1,6 +1,7 @@
 import { exec } from "child_process";
 import { shell, dialog } from "electron";
 import { query } from "./query/query";
+import { ISystemInterface } from "./interfaces/interfaces";
 
 const elements = ["wifi", "system_info", "temperature", "uptime", "feedback"];
 /**
