@@ -9,3 +9,10 @@ async function rmAttributes(): Promise<void> {
         .remove("active");
     });
 }
+
+async function mkAttribute(id: string): Promise<void> {
+    document
+    .querySelector(`#${id}`)
+    .classList
+    .add("active");
+}
