@@ -1,10 +1,11 @@
 import { exec } from "child_process";
 import { shell } from "electron";
-import { ISystemInterface } from "./interfaces/interfaces";
+import { ISystemInterface, ITemperatureInterfaceItems, ITemperatureInterface } from "./interfaces/interfaces";
 import { query } from "./query/query";
 import { systemTemplate } from "./rendering/template";
 
 const elements = ["wifi", "system_info", "temperature", "uptime", "feedback"];
+const links = document.querySelector("#activeForm");
 /**
  * Removes all attributes
  */
@@ -40,7 +41,6 @@ async function systemInformation(): Promise<void> {
     await rmAttributes();
     await mkAttribute("system_info");
     const data = await query(`"SELECT * from system_info;"`) as ISystemInterface;
-    const links = document.querySelector("#activeForm");
     links.innerHTML = "";
     links.appendChild(await systemTemplate(data));
 }
@@ -48,6 +48,11 @@ async function systemInformation(): Promise<void> {
 async function temperatureSensors(): Promise<void> {
     await rmAttributes();
     await mkAttribute("temperature");
-    const data = await query(`"SELECT key, name, celsius, fahrenheit FROM temperature_sensors;"`);
+    const data = await query(`"SELECT key, name, celsius, fahrenheit FROM temperature_sensors;"`) as ITemperatureInterfaceItems;
+    links.innerHTML = "";
+    links.innerHTML = ` <h1 class="title">System Temperature</h1>`;
     
+    data.forEach( (data: ITemperatureInterface ) => {
+        
+    });
 }

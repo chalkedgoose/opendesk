@@ -1,4 +1,4 @@
-import { ISystemInterface } from "../interfaces/interfaces";
+import { ISystemInterface, ITemperatureInterface } from "../interfaces/interfaces";
 
 export async function systemTemplate(x: ISystemInterface): Promise<HTMLElement> {
     const system = document.createElement("div");
@@ -93,4 +93,8 @@ export async function systemTemplate(x: ISystemInterface): Promise<HTMLElement> 
           <br>
 `;
     return system;
+}
+
+export async function temperatureTemplate(x: ITemperatureInterface): Promise<HTMLElement> {
+
 }

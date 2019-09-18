@@ -25,5 +25,5 @@ export interface ITemperatureInterface {
 }
 
 export interface ITemperatureInterfaceItems extends Array<ITemperatureInterface> {
-    
+
 }
