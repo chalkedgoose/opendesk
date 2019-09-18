@@ -1,81 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Open Desk</title>
-    <link rel="stylesheet" href="./styles/photon/css/photon.min.css" />
-  </head>
-  <body>
 
-    <div class="window">
-      <div class="window-content">
-        <br />
+<head>
+  <meta charset="UTF-8" />
+  <title>Open Desk</title>
+  <link rel="stylesheet" href="./styles/photon/css/photon.min.css" />
+</head>
 
-        <style>
-          #mainNav {
-            /* padding: 1vw; */
-            margin-right: 2vw;
-          }
-          #activeForm {
-            padding: 1vw;
-          }
-        </style>
+<body>
 
-        <nav class="nav-group" id="mainNav">
-          <h5 class="nav-group-title">Menu</h5>
-          <a
-            id="system_info"
-            href="javascript:;"
-            onclick="systemInfo();"
-            class="nav-group-item"
-          >
-            <span class="icon icon-monitor"></span>
-            System Info
-          </a>
-          <a
-            id="temperature"
-            href="javascript:;"
-            onclick="temperatureSensors();"
-            class="nav-group-item active"
-          >
-            <span class="icon icon-leaf"></span>
-            Temperature
-          </a>
-          <a
-            id="uptime"
-            href="javascript:;"
-            onclick="uptime();"
-            class="nav-group-item"
-          >
-            <span class="icon icon-hourglass"></span>
-            Uptime
-          </a>
-          <a
-            id="wifi"
-            href="javascript:;"
-            onclick="wifi();"
-            class="nav-group-item"
-          >
-            <span class="icon icon-signal"></span>
-            Wifi
-          </a>
-          <a
-            id="feedback"
-            href="javascript:;"
-            onclick="twitterLink();"
-            class="nav-group-item"
-          >
-            <span class="icon icon-twitter"></span>
-            Feedback
-          </a>
-        </nav>
+  <div class="window">
+    <div class="window-content">
+      <br />
 
-        <ul class="list-group" id="activeForm"></ul>
-        <br />
-      </div>
+      <style>
+        #mainNav {
+          /* padding: 1vw; */
+          margin-right: 2vw;
+        }
+
+        #activeForm {
+          padding: 1vw;
+        }
+      </style>
+
+      <nav class="nav-group" id="mainNav">
+        <h5 class="nav-group-title">Menu</h5>
+        <a id="system_info" href="javascript:;" onclick="systemInfo();" class="nav-group-item">
+          <span class="icon icon-monitor"></span>
+          System Info
+        </a>
+        <a id="temperature" href="javascript:;" onclick="temperatureSensors();" class="nav-group-item active">
+          <span class="icon icon-leaf"></span>
+          Temperature
+        </a>
+        <a id="uptime" href="javascript:;" onclick="uptime();" class="nav-group-item">
+          <span class="icon icon-hourglass"></span>
+          Uptime
+        </a>
+        <a id="wifi" href="javascript:;" onclick="wifi();" class="nav-group-item">
+          <span class="icon icon-signal"></span>
+          Wifi
+        </a>
+        <a id="feedback" href="javascript:;" onclick="twitterLink();" class="nav-group-item">
+          <span class="icon icon-twitter"></span>
+          Feedback
+        </a>
+      </nav>
+
+      <ul class="list-group" id="activeForm"></ul>
+      <br />
     </div>
+  </div>
 
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
-  </body>
+  <!-- You can also require other files to run in this process -->
+  <script src="./renderer.js"></script>
+</body>
+
 </html>
