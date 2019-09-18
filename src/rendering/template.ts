@@ -1,4 +1,4 @@
-import { ISystemInterface, ITemperatureInterface } from "../interfaces/interfaces";
+import { ISystemInterface, ITemperatureInterface, IUptimeInterface } from "../interfaces/interfaces";
 
 export async function systemTemplate(x: ISystemInterface): Promise<HTMLElement> {
   const system = document.createElement("div");
@@ -118,7 +118,7 @@ export async function temperatureTemplate(x: ITemperatureInterface): Promise<HTM
   return temperature;
 }
 
-export async function uptimeTemplate(x: any): Promise<HTMLElement> {
+export async function uptimeTemplate(x: IUptimeInterface): Promise<HTMLElement> {
   const uptime = document.createElement("div");
   uptime.innerHTML += `
   <h1 class="title">System Uptime</h1>
