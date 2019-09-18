@@ -23,3 +23,7 @@ async function mkAttribute(id: string): Promise<void> {
     .classList
     .add("active");
 }
+
+async function twitterLink(): Promise<void> {
+
+}
