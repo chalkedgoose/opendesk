@@ -59,3 +59,6 @@ async function temperatureSensors(): Promise<void> {
     });
 }
 
+async function uptime(): Promise<void> {
+    
+}
