@@ -6,4 +6,5 @@ export interface ISystemInterface {
     cpu_physical_cores?: string;
     cpu_subtype?: string;
     cpu_type?: string;
+    hardware_model?: string;
 }
