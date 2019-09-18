@@ -1,3 +1,8 @@
-// This file is required by the index.html file and will
-// be executed in the renderer process for that window.
-// All of the Node.js APIs are available in this process.
+import { exec } from "child_process";
+
+const elements = ["wifi", "system_info", "temperature", "uptime", "feedback"];
+async function rmAttributes(){
+    elements.forEach(id => {
+
+    });
+}
