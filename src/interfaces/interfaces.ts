@@ -11,6 +11,15 @@ export interface ISystemInterface {
     hardware_vendor?: string;
     hardware_version?: string;
     hostname?: string;
+    local_hostname?: string;
     physical_memory?: string;
     uuid?: string;
 }
+
+export interface ITemperatureInterface {
+    name?: string;
+    fahrenheit?: string;
+    celsius?: string;
+    key?: string;
+}
+

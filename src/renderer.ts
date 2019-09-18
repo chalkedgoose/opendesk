@@ -36,7 +36,7 @@ async function twitterLink(): Promise<void> {
     shell.openExternal("https://twitter.com/Carlos92622018");
 }
 
-async function systemInformation() {
+async function systemInformation(): Promise<void> {
     await rmAttributes();
     await mkAttribute("system_info");
     const data = await query(`"SELECT * from system_info;"`) as ISystemInterface;
@@ -45,3 +45,9 @@ async function systemInformation() {
     links.appendChild(await systemTemplate(data));
 }
 
+async function temperatureSensors(): Promise<void> {
+    await rmAttributes();
+    await mkAttribute("temperature");
+    const data = await query(`"SELECT key, name, celsius, fahrenheit FROM temperature_sensors;"`);
+    
+}
