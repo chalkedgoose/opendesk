@@ -40,9 +40,11 @@ async function twitterLink(): Promise<void> {
 async function systemInformation(): Promise<void> {
     await rmAttributes();
     await mkAttribute("system_info");
-    const data = await query(`"SELECT * from system_info;"`) as ISystemInterface;
+    const data = await query(`"SELECT * from system_info;"`) as Array<ISystemInterface>;
     links.innerHTML = "";
-    links.appendChild(await systemTemplate(data));
+    data.forEach(async (x: ISystemInterface) => {
+        links.appendChild(await systemTemplate(x));
+    });
 }
 
 async function temperatureSensors(): Promise<void> {
@@ -52,8 +54,8 @@ async function temperatureSensors(): Promise<void> {
     links.innerHTML = "";
     links.innerHTML = ` <h1 class="title">System Temperature</h1>`;
 
-    data.forEach(async (data: ITemperatureInterface) => {
-        links.appendChild(await temperatureTemplate(data));
+    data.forEach(async (x: ITemperatureInterface) => {
+        links.appendChild(await temperatureTemplate(x));
     });
 }
 
