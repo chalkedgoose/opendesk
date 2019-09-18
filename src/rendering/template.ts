@@ -1,6 +1,6 @@
 import { ISystemInterface } from "../interfaces/interfaces";
 
-export async function systemTemplate(parent: HTMLElement, x: ISystemInterface ): Promise<HTMLElement> {
+export async function systemTemplate(x: ISystemInterface): Promise<HTMLElement> {
     const system = document.createElement("div");
     system.innerHTML = `
     <h1 class="title">System Information</h1>
