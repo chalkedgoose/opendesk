@@ -3,7 +3,7 @@ import * as path from "path";
 
 let mainWindow: BrowserWindow;
 
-function createWindow(): void {
+const createWindow = () => {
     mainWindow = new BrowserWindow({
         height: 600,
         webPreferences: {

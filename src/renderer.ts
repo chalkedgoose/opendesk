@@ -1,83 +1,71 @@
-import { exec } from "child_process";
-import { shell } from "electron";
 import { ISystemInterface, ITemperatureInterfaceItems, ITemperatureInterface, IUptimeInterface } from "./interfaces/interfaces";
 import { query } from "./query/query";
 import { systemTemplate, temperatureTemplate, uptimeTemplate } from "./rendering/template";
 
-const elements = ["wifi", "system_info", "temperature", "uptime", "feedback"];
+export const elements = ["wifi", "system_info", "temperature", "uptime", "feedback"] as const;
+
+export type TAttribute = typeof elements[number];
+
 const links = document.querySelector("#activeForm");
-/**
- * Removes all attributes
- */
-async function rmAttributes(): Promise<void> {
-    elements.forEach((id) => {
-        document
-            .querySelector(`${id}`)
-            .classList
-            .remove("active");
-    });
+
+const rmAttributeHelper = (id: TAttribute) => document
+    .querySelector(`${id}`)
+    .classList
+    .remove("active")
+
+
+const stripAttributes = () => elements.forEach(rmAttributeHelper)
+
+const makeAttribute = (id: TAttribute) => document
+    .querySelector(`#${id}`)
+    .classList
+    .add("active");
+
+
+export enum CustomQSelector {
+    SYSTEM_INFO = '#system_info',
+    TEMPERATURE = "#temperature"
 }
 
-/**
- * @param id - id of object we want to add
- */
-async function mkAttribute(id: string): Promise<void> {
-    document
-        .querySelector(`#${id}`)
-        .classList
-        .add("active");
+export enum QueryCommand {
+    SYSTEM_INFO = `"SELECT * from system_info;"`,
+    TEMPERATURE_INFO = `"SELECT key, name, celsius, fahrenheit FROM temperature_sensors;"`,
+    UPTIME_INFO = `" SELECT days, hours, minutes, seconds, total_seconds FROM uptime;"`,
 }
 
-/**
- * Twitter Link Generator
- */
-async function twitterLink(): Promise<void> {
-    await rmAttributes();
-    await mkAttribute("feedback");
-    shell.openExternal("https://twitter.com/Carlos92622018");
-}
-
-document.querySelector("#system_info").addEventListener('click', async () => {
-    await rmAttributes();
-    await mkAttribute("system_info");
-    const data = await query(`"SELECT * from system_info;"`) as Array<ISystemInterface>;
+document.querySelector(CustomQSelector.SYSTEM_INFO).addEventListener('click', async () => {
+    stripAttributes();
+    makeAttribute("system_info");
+    const data = await query(QueryCommand.SYSTEM_INFO) as Array<ISystemInterface>;
     links.innerHTML = "";
-    data.forEach(async (x: ISystemInterface) => {
-        links.appendChild(await systemTemplate(x));
-    });
+    data.forEach(async (x) => links.appendChild(await systemTemplate(x)));
 })
 
 
-document.querySelector("#temperature").addEventListener('click', async () => {
-    await rmAttributes();
-    await mkAttribute("temperature");
-    const data = await query(`"SELECT key, name, celsius, fahrenheit FROM temperature_sensors;"`) as ITemperatureInterfaceItems;
+document.querySelector(CustomQSelector.TEMPERATURE).addEventListener('click', async () => {
+    stripAttributes();
+    makeAttribute("temperature");
+    const data = await query(QueryCommand.TEMPERATURE_INFO) as ITemperatureInterfaceItems;
     links.innerHTML = "";
     links.innerHTML = ` <h1 class="title">System Temperature</h1>`;
 
-    data.forEach(async (x: ITemperatureInterface) => {
-        links.appendChild(await temperatureTemplate(x));
-    });
+    data.forEach(async (x) => links.appendChild(await temperatureTemplate(x)));
 });
 
-async function uptime(): Promise<void> {
-    await rmAttributes();
-    await mkAttribute("uptime");
-    const data = await query(`" SELECT days, hours, minutes, seconds, total_seconds FROM uptime;"`) as Array<IUptimeInterface>;
-    data.forEach(async (x: IUptimeInterface) => {
-        links.appendChild(await uptimeTemplate(x));
-    });
+export async function uptime(): Promise<void> {
+    stripAttributes();
+    makeAttribute("uptime");
+    const data = await query(QueryCommand.UPTIME_INFO) as Array<IUptimeInterface>;
+    data.forEach(async (x) => links.appendChild(await uptimeTemplate(x)));
 }
 
-const temp = setInterval(async () => {
+export const temp = setInterval(async () => {
     clearInterval(temp);
-    await rmAttributes();
-    await mkAttribute("temperature");
-    const data = await query(`"SELECT key, name, celsius, fahrenheit FROM temperature_sensors;"`) as ITemperatureInterfaceItems;
+    stripAttributes();
+    makeAttribute("temperature");
+    const data = await query(QueryCommand.TEMPERATURE_INFO) as ITemperatureInterfaceItems;
     links.innerHTML = "";
     links.innerHTML = ` <h1 class="title">System Temperature</h1>`;
 
-    data.forEach(async (x: ITemperatureInterface) => {
-        links.appendChild(await temperatureTemplate(x));
-    });
+    data.forEach(async (x) => links.appendChild(await temperatureTemplate(x)));
 }, 10);
