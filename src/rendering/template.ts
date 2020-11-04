@@ -95,70 +95,77 @@ export async function systemTemplate(x: ISystemInterface): Promise<HTMLElement> 
   return system;
 }
 
-export async function temperatureTemplate(x: ITemperatureInterface): Promise<HTMLElement> {
-  const temperature = document.createElement("div");
-  temperature.innerHTML += `
+
+
+const xtemperatureTemplate = ({ name, fahrenheit, celsius, key }: ITemperatureInterface) => (
+  `
   <li class="list-group-item">
   <div class="media-body">
     <strong>
-      ${x.name}
+      ${name}
     </strong>
     <p>
-    fahrenheit: ${x.fahrenheit}
+    fahrenheit: ${fahrenheit}
     </p>
     <p>
-    celsius: ${x.celsius}
+    celsius: ${celsius}
     </p>
     <p>
-    key: ${x.key}
+    key: ${key}
     </p>
   </div>
-</li>
-  `
+</li>`
+)
+
+
+
+export async function temperatureTemplate(x: ITemperatureInterface): Promise<HTMLElement> {
+  const temperature = document.createElement("div");
+  temperature.innerHTML += xtemperatureTemplate(x)
   return temperature;
 }
 
 export async function uptimeTemplate(x: IUptimeInterface): Promise<HTMLElement> {
   const uptime = document.createElement("div");
   uptime.innerHTML += `
-  <h1 class="title">System Uptime</h1>
-  <div class="media-body">
-          <h5>
-            days: 
-          </h5>
-          <p>
-          ${x.days}
-          </p>
-        
-          <h5>
-            hours: 
-          </h5>
-          <p>
-          ${x.hours}
-          </p>
-         
-          <h5>
-            minutes: 
-          </h5>
-          <p>
-          ${x.minutes}
-          </p>
-         
-          <h5>
-            seconds: 
-          </h5>
-          <p>
-          ${x.seconds}
-          </p>
-        
-          <h5>
-            total seconds:
-          </h5>
-          <p>
-          ${x.total_seconds}
-          </p>
-          <br>
-        </div>
-  `
+  < h1 class="title" > System Uptime < /h1>
+    < div class="media-body" >
+      <h5>
+      days:
+</h5>
+  < p >
+  ${x.days}
+</>
+
+  < h5 >
+  hours:
+</>
+  < p >
+  ${x.hours}
+</>
+
+  < h5 >
+  minutes:
+</>
+  < p >
+  ${x.minutes}
+</>
+
+  < h5 >
+  seconds:
+</>
+  < p >
+  ${x.seconds}
+</>
+
+  < h5 >
+  total seconds:
+</>
+  < p >
+  ${x.total_seconds}
+</>
+  < br >
+  </div>
+    `
   return uptime;
 }
